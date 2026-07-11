@@ -62,31 +62,10 @@
           </div>
 
           <figure class="overview-visual" aria-label="SentryLine system overview">
-            <div class="pipeline-figure">
-              <div class="pipeline-stage">
-                <span>Stage 1</span>
-                <strong>Guideline Corpus</strong>
-                <p>ASCO/NCCN breast and prostate cancer guideline PDFs</p>
-              </div>
-              <div class="pipeline-arrow">→</div>
-              <div class="pipeline-stage">
-                <span>Stage 2</span>
-                <strong>Evidence Retrieval</strong>
-                <p>Retrieve guideline passages relevant to the current turn</p>
-              </div>
-              <div class="pipeline-arrow">→</div>
-              <div class="pipeline-stage">
-                <span>Stage 3</span>
-                <strong>Verifier Layer</strong>
-                <p>Check factual support, safety, role fit, and temporal drift</p>
-              </div>
-              <div class="pipeline-arrow">→</div>
-              <div class="pipeline-stage output">
-                <span>Stage 4</span>
-                <strong>Grounded Answer</strong>
-                <p>Clinician- or patient-facing response with evidence context</p>
-              </div>
-            </div>
+            <img
+              src="images/architecture.png"
+              alt="SentryLine architecture diagram showing evidence sources, retrieval, verifier layer, and grounded response generation"
+            />
           </figure>
         </div>
       </section>
@@ -139,7 +118,7 @@
           <div class="results-layout">
             <figure class="figure-frame">
               <img
-                src="../eval/figures/asco_vs_sentinel_fc_by_question_type.png"
+                src="images/asco_vs_sentinel_fc_by_question_type.png"
                 alt="Bar chart comparing ASCO Guidelines Assistant and SentryLine fully correct rates by question type"
               />
             </figure>
@@ -181,7 +160,7 @@
         </div>
       </section>
 
-      <section class="section shell">
+      <section class="section shell centered-section">
         <div class="section-heading">
           <p class="eyebrow">Conversation Robustness</p>
           <h2>Performance across multi-turn questions</h2>
@@ -192,7 +171,7 @@
         </div>
         <figure class="figure-frame wide">
           <img
-            src="../eval/figures/sentryline_fc_by_turn.png"
+            src="images/sentryline_fc_by_turn.png"
             alt="Bar chart showing SentryLine fully correct rate by turn for Gemini, DeepSeek, and Llama"
           />
         </figure>

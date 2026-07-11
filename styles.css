@@ -164,10 +164,18 @@ img {
 .overview-visual {
   max-width: 980px;
   margin: 60px auto 0;
-  padding: 20px;
-  background: #fbfaf7;
+  padding: 18px;
+  background: #f7f8fa;
   border: 1px dashed #c7beb2;
   border-radius: 8px;
+}
+
+.overview-visual img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 0;
 }
 
 .pipeline-figure {
@@ -329,6 +337,12 @@ img {
   margin-bottom: 34px;
 }
 
+.centered-section .section-heading {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
 .section-heading h2 {
   margin: 0;
   font-size: clamp(30px, 4vw, 46px);
@@ -403,6 +417,11 @@ img {
 
 .figure-frame.wide {
   max-width: 860px;
+}
+
+.centered-section .figure-frame.wide {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .result-table-wrap {
