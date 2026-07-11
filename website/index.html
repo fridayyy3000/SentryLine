@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SentryLine: Evidence-Grounded Question Answering over Evolving Documents in Oncology Care</title>
+    <meta
+      name="description"
+      content="SentryLine is an evidence-grounded oncology question answering system for evolving clinical guideline documents."
+    />
+    <meta
+      property="og:title"
+      content="SentryLine: Evidence-Grounded Question Answering over Evolving Documents in Oncology Care"
+    />
+    <meta
+      property="og:description"
+      content="Project page for SentryLine, an oncology guideline QA system with retrieval, temporal checking, and evidence-grounded verification."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-topbar" aria-hidden="true">
+      <div class="app-mark">♥</div>
+      <div>
+        <strong>SentryLine</strong>
+        <span>Mayo Clinic · Oncology Guidelines</span>
+      </div>
+    </div>
+
+    <main id="top">
+      <section class="paper-hero">
+        <div class="shell paper-hero-inner">
+          <h1>SentryLine</h1>
+          <p class="paper-subtitle">
+            Evidence-Grounded Question Answering over Evolving Documents in Oncology Care
+          </p>
+
+          <p class="authors" aria-label="Authors">
+            <span>Tampu Ravi Kumar</span>,
+            <span>Gaurav Najpande</span>,
+            <span>Muhammad Ali Khan</span>,
+            <span>Kaneez Zahra Rubab Khakwani</span>,
+            <span>Karan Kathuria</span>,
+            <span>Shorya Azriel Moses</span>,
+            <span>Yuvraj Kalia</span>,
+            <span>Mohamad Bassam Sonbol</span>,
+            <span>Irbaz Bin Riaz</span>,
+            <span>Vivek Gupta</span>
+          </p>
+
+          <div class="paper-actions" aria-label="Project links">
+            <a href="#">Code</a>
+            <a href="#">Video</a>
+          </div>
+
+          <figure class="overview-visual" aria-label="SentryLine system overview">
+            <div class="pipeline-figure">
+              <div class="pipeline-stage">
+                <span>Stage 1</span>
+                <strong>Guideline Corpus</strong>
+                <p>ASCO/NCCN breast and prostate cancer guideline PDFs</p>
+              </div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-stage">
+                <span>Stage 2</span>
+                <strong>Evidence Retrieval</strong>
+                <p>Retrieve guideline passages relevant to the current turn</p>
+              </div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-stage">
+                <span>Stage 3</span>
+                <strong>Verifier Layer</strong>
+                <p>Check factual support, safety, role fit, and temporal drift</p>
+              </div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-stage output">
+                <span>Stage 4</span>
+                <strong>Grounded Answer</strong>
+                <p>Clinician- or patient-facing response with evidence context</p>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section shell" id="method">
+        <div class="section-heading">
+          <p class="eyebrow">System Overview</p>
+          <h2>Built for evolving clinical evidence</h2>
+          <p>
+            Oncology guideline QA is not only a retrieval task. The system must recognize when recommendations
+            change, preserve context across turns, and avoid outdated or unsupported clinical claims.
+          </p>
+        </div>
+
+        <div class="workflow">
+          <article>
+            <span class="step-number">01</span>
+            <h3>Guideline Retrieval</h3>
+            <p>Searches breast and prostate cancer guideline sources for evidence relevant to the current turn and prior context.</p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <h3>Evidence-Grounded Drafting</h3>
+            <p>Generates a direct answer with citations, eligibility boundaries, contraindications, dosing context, and guideline rationale.</p>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <h3>Factual Verification</h3>
+            <p>Checks whether the answer is supported by retrieved evidence and flags unsupported or unsafe claims before final output.</p>
+          </article>
+          <article>
+            <span class="step-number">04</span>
+            <h3>Temporal Drift Detection</h3>
+            <p>Identifies changed recommendations across living guideline updates and distinguishes current guidance from prior standards.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section results-band" id="results">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Main Results</p>
+            <h2>SentryLine improves fully correct answers across question types</h2>
+            <p>
+              Scores are turn-level LLM-as-judge evaluations against gold answers. D1 scores map to fully correct,
+              partially correct, and incorrect responses.
+            </p>
+          </div>
+
+          <div class="results-layout">
+            <figure class="figure-frame">
+              <img
+                src="../eval/figures/asco_vs_sentinel_fc_by_question_type.png"
+                alt="Bar chart comparing ASCO Guidelines Assistant and SentryLine fully correct rates by question type"
+              />
+            </figure>
+            <div class="result-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Question Type</th>
+                    <th>ASCO Assistant</th>
+                    <th>SentryLine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Factual</td>
+                    <td>20.0</td>
+                    <td>59.0</td>
+                  </tr>
+                  <tr>
+                    <td>Reasoning</td>
+                    <td>10.0</td>
+                    <td>78.1</td>
+                  </tr>
+                  <tr>
+                    <td>Contrasting</td>
+                    <td>13.3</td>
+                    <td>59.3</td>
+                  </tr>
+                  <tr>
+                    <td>Role-specific</td>
+                    <td>8.3</td>
+                    <td>65.3</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="table-note">Values are fully correct rates in percent. SentryLine uses the best backbone per category.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell">
+        <div class="section-heading">
+          <p class="eyebrow">Conversation Robustness</p>
+          <h2>Performance across multi-turn questions</h2>
+          <p>
+            Each benchmark item contains three turns. We evaluate every turn separately and aggregate by turn index to
+            measure whether models preserve clinical context as the conversation evolves.
+          </p>
+        </div>
+        <figure class="figure-frame wide">
+          <img
+            src="../eval/figures/sentryline_fc_by_turn.png"
+            alt="Bar chart showing SentryLine fully correct rate by turn for Gemini, DeepSeek, and Llama"
+          />
+        </figure>
+      </section>
+
+      <section class="section case-section" id="case-study">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Clinician-Facing Example</p>
+            <h2>Contrasting prior and current prostate cancer guidance</h2>
+          </div>
+          <div class="case-grid">
+            <article class="dialogue-card">
+              <span class="turn-label">Turn 1</span>
+              <h3>What did PEACE-3 demonstrate?</h3>
+              <p>
+                SentryLine identifies the 2026 evidence update: radium-223 plus enzalutamide improved radiographic
+                progression-free survival in mCRPC with bony and nodal disease, while excluding visceral metastases
+                and requiring bone-protective agents.
+              </p>
+            </article>
+            <article class="dialogue-card">
+              <span class="turn-label">Turn 2</span>
+              <h3>When did ASCO incorporate it?</h3>
+              <p>
+                The answer attributes the recommendation change to the January 2026 living guideline update and the
+                PEACE-3 trial evidence, rather than a single regulatory action.
+              </p>
+            </article>
+            <article class="dialogue-card">
+              <span class="turn-label">Turn 3</span>
+              <h3>Has sequential therapy been superseded?</h3>
+              <p>
+                SentryLine explains that concurrent treatment is supported only for eligible patients and still avoids
+                combination therapy in visceral disease, large nodal disease, and settings without bone protection.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="dataset">
+        <div class="section-heading">
+          <p class="eyebrow">Benchmark</p>
+          <h2>Multi-turn oncology QA over breast and prostate cancer guidelines</h2>
+        </div>
+        <div class="dataset-grid">
+          <div class="stat-block">
+            <strong>315</strong>
+            <span>gold-evaluated turns</span>
+          </div>
+          <div class="stat-block">
+            <strong>105</strong>
+            <span>multi-turn conversations</span>
+          </div>
+          <div class="stat-block">
+            <strong>4</strong>
+            <span>question types</span>
+          </div>
+          <div class="stat-block">
+            <strong>3</strong>
+            <span>generation backbones</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </body>
+</html>
